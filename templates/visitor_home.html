@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../static/plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="../static/plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="../static/plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="../static/plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="../static/plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="../static/plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="../static/css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+  
+
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2 bg-white">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4 text-center text-lg-left">
+          
+        </div>
+        <div class="col-lg-8 text-center text-lg-right">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href={{ url_for("notice") }}>公告</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="research.html">查询</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href={{ url_for("logout") }} data-toggle="modal" data-target="#loginModal">退出登录</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <!--a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo" ></a-->
+        <!--<button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>-->
+        
+
+        <div class="collapse navbar-collapse" id="navigation" style="font-size:20px">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item active">
+              <a class="nav-link" href={{ url_for("visitor") }}>全部课程</a>
+            </li>
+            <li class="nav-item @@about">
+              <a class="nav-link" href={{ url_for("visitor_collection") }}>我的收藏</a>
+            </li>
+            <li class="nav-item @@courses">
+              <a class="nav-link" href={{ url_for("blog") }}>论坛</a>
+            </li>
+            <!--li class="nav-item @@contact"-->
+              <!-- <a class="nav-link" href="contact.html">CONTACT</a> -->
+            <!--/li-->
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>  
+<!-- /header -->
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>游客注册</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login">
+                    <form action="#" class="row">
+                        <div class="col-12">
+                            <input type="text" class="form-control mb-3" id="signupPhone" name="signupPhone" placeholder="Phone">
+                        </div>
+                        <div class="col-12">
+                            <input type="text" class="form-control mb-3" id="signupName" name="signupName" placeholder="Name">
+                        </div>
+                        <div class="col-12">
+                            <input type="email" class="form-control mb-3" id="signupEmail" name="signupEmail" placeholder="Email">
+                        </div>
+                        <div class="col-12">
+                            <input type="password" class="form-control mb-3" id="signupPassword" name="signupPassword" placeholder="Password">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">注册</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>用户登录</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="row">
+                    
+                    <div class="col-12">
+                        <input type="text" class="form-control mb-3" id="loginName" name="loginName" placeholder="学号/学工号">
+                    </div>
+                    <div class="col-12">
+                        <input type="password" class="form-control mb-3" id="loginPassword" name="loginPassword" placeholder="密码">
+                    </div>
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">登录</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select class="btn btn-primary">
+                <option value="teacher">教师</option>
+                <option value="student">学生</option>
+                <option value="tourist">游客</option>
+            </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hero slider -->
+<section class="page-title-section overlay" data-background="../static/images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="teacher.html">{{ session['username'] }}，你好！</a></li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /hero slider -->
+
+
+
+<!-- courses -->
+<section class="section">
+  <div class="container">
+    <!-- course list -->
+<div class="row justify-content-center">
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="../static/images/courses/course-1.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2018-2019秋冬学期</li>
+          
+        </ul>
+        <a href="course-single.html">
+          <h4 class="card-title">C程序设计</h4>
+        </a>
+
+        <a href="course-single.html" class="btn btn-primary btn-sm">查看</a>
+      </div>
+    </div>
+  </div>
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="../static/images/courses/course-2.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2018-2019春夏学期</li>
+        </ul>
+        <a href="course-single.html">
+          <h4 class="card-title">微积分（甲）</h4>
+        </a>
+
+        <a href="course-single.html" class="btn btn-primary btn-sm">查看</a>
+      </div>
+    </div>
+  </div>
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="../static/images/courses/course-3.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2018-2019春夏学期</li>
+
+        </ul>
+        <a href="course-single.html">
+          <h4 class="card-title">计算机程序设计方法学</h4>
+        </a>
+
+        <a href="course-single.html" class="btn btn-primary btn-sm">查看</a>
+      </div>
+    </div>
+  </div>
+ </div>
+<!-- /course list -->
+  </div>
+</section>
+<!-- /courses -->
+
+<!-- footer -->
+<footer>
+  <!-- newsletter -->
+  <div class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
+          <h3 class="text-white">Subscribe Now</h3>
+          <form action="#">
+            <div class="input-wrapper">
+              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
+              <button type="submit" value="send" class="btn btn-primary">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer content -->
+  <div class="footer bg-footer section border-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
+          <!-- logo -->
+          <a class="logo-footer" href="index.html"><img class="img-fluid mb-4" src="../static/images/logo.png" alt="logo"></a>
+          <ul class="list-unstyled">
+            <li class="mb-2">23621 15 Mile Rd #C104, Clinton MI, 48035, New York, USA</li>
+            <li class="mb-2">+1 (2) 345 6789</li>
+            <li class="mb-2">+1 (2) 345 6789</li>
+            <li class="mb-2">contact@yourdomain.com</li>
+          </ul>
+        </div>
+        <!-- company -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">COMPANY</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="about.html">About Us</a></li>
+            <li class="mb-3"><a class="text-color" href="teacher.html">Our Teacher</a></li>
+            <li class="mb-3"><a class="text-color" href="contact.html">Contact</a></li>
+            <li class="mb-3"><a class="text-color" href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <!-- links -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">LINKS</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="courses.html">Courses</a></li>
+            <li class="mb-3"><a class="text-color" href="event.html">Events</a></li>
+            <li class="mb-3"><a class="text-color" href="gallary.html">Gallary</a></li>
+            <li class="mb-3"><a class="text-color" href="faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <!-- support -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">SUPPORT</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="#">Forums</a></li>
+            <li class="mb-3"><a class="text-color" href="#">Documentation</a></li>
+            <li class="mb-3"><a class="text-color" href="#">Language</a></li>
+            <li class="mb-3"><a class="text-color" href="#">Release Status</a></li>
+          </ul>
+        </div>
+        <!-- support -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">RECOMMEND</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="#">WordPress</a></li>
+            <li class="mb-3"><a class="text-color" href="#">LearnPress</a></li>
+            <li class="mb-3"><a class="text-color" href="#">WooCommerce</a></li>
+            <li class="mb-3"><a class="text-color" href="#">bbPress</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- copyright -->
+  <div class="copyright py-4 bg-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+          <p class="mb-0">Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#themefisher"><i class="ti-facebook text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#themefisher"><i class="ti-twitter-alt text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-instagram text-primary"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#themefisher"><i class="ti-dribbble text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="../static/plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="../static/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="../static/plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="../static/plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="../static/plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="../static/plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+
+<script src="../static/plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="../static/js/script.js"></script>
+
+</body>
+</html>

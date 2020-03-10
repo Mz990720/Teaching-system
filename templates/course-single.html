@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>教师-课程详情</title>
+    <style type="text/css">
+     button{
+        width: 150px;/*设置按钮宽度*/
+      height: 30px;/*设置按钮高度*/
+      color:white;/*字体颜色*/
+      background-color:#ffbc3b;/*按钮背景颜色*/
+      border-radius: 3px;/*让按钮变得圆滑一点*/
+      border-width: 0;/*消去按钮丑的边框*/
+      margin: 0;
+      outline: none;/*取消轮廓*/
+      font-family: KaiTi;/*字体设置为楷体*/
+      font-size: 17px;/*设置字体大小*/
+      text-align: center;/*字体居中*/
+      cursor: pointer;/*设置鼠标箭头手势*/
+   </style>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../static/plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="../static/plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="../static/plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="../static/plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="../static/plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="../static/plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="../static/css/style.css" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2 bg-white">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4 text-center text-lg-left">
+          
+        </div>
+        <div class="col-lg-8 text-center text-lg-right">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href={{url_for("notice") }}>公告</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="research.html">查询</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href={{url_for("logout") }}>退出登录</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item active">
+              <a class="nav-link" href={{ url_for("teacher") }}>我的课程</a>
+            </li>
+
+            <li class="nav-item @@course">
+              <a class="nav-link" href={{ url_for("teacher_information") }}>个人信息</a>
+            </li>
+            <li class="nav-item @@events">
+              <a class="nav-link" href={{ url_for("blog") }}>论坛</a>
+            </li>
+
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>Register</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login">
+                    <form action="#" class="row">
+                        <div class="col-12">
+                            <input type="text" class="form-control mb-3" id="signupPhone" name="signupPhone" placeholder="Phone">
+                        </div>
+                        <div class="col-12">
+                            <input type="text" class="form-control mb-3" id="signupName" name="signupName" placeholder="Name">
+                        </div>
+                        <div class="col-12">
+                            <input type="email" class="form-control mb-3" id="signupEmail" name="signupEmail" placeholder="Email">
+                        </div>
+                        <div class="col-12">
+                            <input type="password" class="form-control mb-3" id="signupPassword" name="signupPassword" placeholder="Password">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">SIGN UP</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>Login</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="row">
+                    <div class="col-12">
+                        <input type="text" class="form-control mb-3" id="loginPhone" name="loginPhone" placeholder="Phone">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control mb-3" id="loginName" name="loginName" placeholder="Name">
+                    </div>
+                    <div class="col-12">
+                        <input type="password" class="form-control mb-3" id="loginPassword" name="loginPassword" placeholder="Password">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">LOGIN</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="courses.html">课程详情</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">{{ Str[1] }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <!-- course thumb -->
+        <!-- img src="images/courses/course-single.jpg" class="img-fluid w-100" -->
+      </div>
+    </div>
+    <!-- course info -->
+    <div class="row align-items-center mb-5">
+      <div class="col-xl-3 order-1 col-sm-6 mb-4 mb-xl-0">
+        <h2>{{ Str[1] }}</h2>
+      </div>
+      <div  class="col-xl-6 order-sm-3 order-xl-2 col-12 order-2">
+        <ul class="list-inline text-xl-center" style=" float:right;">
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-book text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">课时</h6>
+                <p class="mb-0">{{ Str[6] }} 周</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">期末测试</h6>
+                <p class="mb-0">{{ Str[7] }}</p>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- border -->
+
+
+      <div class="col-12 mt-4 order-4">
+        <div class="border-bottom border-primary"></div>
+      </div>
+    </div>
+    <!-- course details -->
+    <div class="row">
+      <div class="col-12 mb-4">
+        <h3>课程要求</h3>
+        <p>{{ Str[8] }}</p>
+        <div  style='padding-left: 72px;line-height: 58px;border-bottom: 1px solid #eceef0;color: #93999f;'></div>
+      </div>
+    </div>
+
+
+<section class="section">
+<div class="col-12 mb-4">
+        <h3 class="mb-3">第1章 堆的概念</h3>
+        <div  style='padding-left: 72px;line-height: 58px;border-bottom: 1px solid #eceef0;color: #93999f;'></div>
+        <ul class="list-styled">
+          <li></li>
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">1-1 堆概念ppt
+              <a href={{ url_for("ppt_up") }}>
+                <button style=" float:right;">上传</button>
+              </a>
+              &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <a href="../static/images/Homework-2.pdf">
+                <button>试看</button>
+              </a>
+
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">1-2 第一章视频
+                <button  style=" float:right;">试看</button>
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">1-3 堆概念作业
+
+                  <a href={{ url_for("create_hw") }}>
+              <button style=" float:right;">布置</button>
+                </a>
+
+               &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <a href={{ url_for("homework_detail") }}>
+                <button>查看</button>
+              </a>
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">1-4 章节小测
+                <a href={{ url_for("add_radio")}}  style=" float:right;">
+                  <button>布置</button>
+                </a>
+            </div>
+          </li>
+
+        </ul>
+        <div  style='padding-left: 72px;line-height: 58px;border-bottom: 1px solid #eceef0;color: #93999f;'></div>
+      </div>
+
+
+  <div class="col-12 mb-4">
+        <h3 class="mb-3">第2章 红黑树</h3>
+        <div  style='padding-left: 72px;line-height: 58px;border-bottom: 1px solid #eceef0;color: #93999f;'></div>
+        <ul class="list-styled">
+          <li></li>
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">2-1 红黑树ppt
+              <a href={{ url_for("ppt_up") }}>
+                <button style=" float:right;">上传</button>
+              </a>
+              &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <a href="../static/images/Homework-2.pdf">
+                <button>试看</button>
+              </a>
+
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">2-2 红黑树视频
+                <button  style=" float:right;">试看</button>
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">2-3 红黑树作业
+               <a href={{ url_for("create_hw") }}>
+              <button style=" float:right;">布置</button>
+                </a>
+
+               &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <a href={{ url_for("homework_detail") }}>
+                <button>查看</button>
+              </a>
+            </div>
+          </li>
+
+          <li>
+            <div href={{ url_for("homework_detail") }} class="h4 mb-3 d-block">2-4 章节小测
+                <a href={{ url_for("add_radio")}}  style=" float:right;">
+                  <button>布置</button>
+                </a>
+            </div>
+          </li>
+
+        </ul>
+        <div  style='padding-left: 72px;line-height: 58px;border-bottom: 1px solid #eceef0;color: #93999f;'></div>
+      </div>
+
+  <div class="col-12 mb-4">
+        <h3 class="mb-3">第3章 二叉树</h3>
+        <div  style='padding-left: 72px;line-height: 58px;border-bottom: 1px solid #eceef0;color: #93999f;'></div>
+        <ul class="list-styled">
+          <li></li>
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">3-1 二叉树ppt
+              <a href={{ url_for("ppt_up") }}>
+                <button style=" float:right;">上传</button>
+              </a>
+              &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <a href="../static/images/Homework-2.pdf">
+                <button>试看</button>
+              </a>
+
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">3-2 二叉树视频
+                <button  style=" float:right;">试看</button>
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">3-3 二叉树作业
+              <a href={{ url_for("create_hw") }}>
+              <button style=" float:right;">布置</button>
+                </a>
+
+               &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <a href={{ url_for("homework_detail") }}>
+                <button>查看</button>
+              </a>
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">3-4 章节小测
+               <a href={{ url_for("add_radio")}}  style=" float:right;">
+                  <button>布置</button>
+                </a>
+            </div>
+          </li>
+
+        </ul>
+        <div  style='padding-left: 72px;line-height: 58px;border-bottom: 1px solid #eceef0;color: #93999f;'></div>
+      </div>
+
+  <div class="col-12 mb-4">
+        <h3 class="mb-3">第4章 完全二叉树</h3>
+        <div  style='padding-left: 72px;line-height: 58px;border-bottom: 1px solid #eceef0;color: #93999f;'></div>
+        <ul class="list-styled">
+          <li></li>
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">4-1 完全二叉树ppt
+              <a href={{ url_for("ppt_up") }}>
+                <button style=" float:right;">上传</button>
+              </a>
+              &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <a href="../static/images/Homework-2.pdf">
+                <button>试看</button>
+              </a>
+
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">4-2 完全二叉树视频
+                <button  style=" float:right;">试看</button>
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">4-3 完全二叉树作业
+               <a href={{ url_for("create_hw") }}>
+              <button style=" float:right;">布置</button>
+                </a>
+
+               &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <a href={{ url_for("homework_detail") }}>
+                <button>查看</button>
+              </a>
+            </div>
+          </li>
+
+          <li>
+            <div href="notice-single.html" class="h4 mb-3 d-block">4-4 章节小测
+                <a href={{ url_for("add_radio")}}  style=" float:right;">
+                  <button>布置</button>
+                </a>
+            </div>
+          </li>
+
+        </ul>
+        <div  style='padding-left: 72px;line-height: 58px;border-bottom: 1px solid #eceef0;color: #93999f;'></div>
+      </div>
+
+      </section>
+
+
+<!-- related course -->
+
+<!-- /related course -->
+
+<!-- footer -->
+
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

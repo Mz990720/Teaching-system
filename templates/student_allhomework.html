@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>我的作业</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../static/plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="../static/plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="../static/plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="../static/plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="../static/plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="../static/plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="../static/css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+  
+
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2 bg-white">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4 text-center text-lg-left">
+          
+        </div>
+        <div class="col-lg-8 text-center text-lg-right">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="notice.html">公告</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="research.html">查询</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#loginModal">退出登录</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <!--a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo" ></a-->
+        <!--<button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>-->
+        
+
+        <div class="collapse navbar-collapse" id="navigation" style="font-size:20px">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item @@index">
+              <a class="nav-link" href={{ url_for("student") }}>主 页</a>
+            </li>
+            <li class="nav-item @@about">
+              <a class="nav-link" href={{ url_for("student_information") }}>个人信息</a>
+            </li>
+            <li class="nav-item @@courses">
+              <a class="nav-link" href={{ url_for("allcourses") }}>全部课程</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href={{ url_for("allhomework") }}>我的作业</a>
+            </li>
+            <li class="nav-item @@blog">
+              <a class="nav-link"  href={{ url_for("blog") }}>论 坛</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                其 他
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="teacher.html">老师</a>
+                <a class="dropdown-item" href="teacher-single.html">我的组队</a>
+                <a class="dropdown-item"  href={{ url_for("notice") }}>公告</a>
+                <a class="dropdown-item" href="notice-single.html">全部课程</a>
+                <a class="dropdown-item" href="research.html">搜索</a>
+                <a class="dropdown-item" href="scholarship.html">校内论坛</a>
+              </div>
+            </li>
+            <!--li class="nav-item @@contact"-->
+              <!-- <a class="nav-link" href="contact.html">CONTACT</a> -->
+            <!--/li-->
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>  
+<!-- /header -->
+
+
+<!-- hero slider -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="teacher.html">我的作业</a></li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /hero slider -->
+
+
+
+<!-- courses -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex align-items-center section-title justify-content-between">
+          
+          <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+          
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-unstyled">
+          <!-- notice item -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">25</span> APR,2019</div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href={{ url_for("student_homework") }} class="h4 mb-3 d-block">{{ course_data_1[1] }}</a>
+              <p class="mb-0">{{ homework_data_1[5] }}</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <form id="form5" method="post" action="/api/find_homework_1">
+              <input type=submit  class="btn btn-primary btn-sm" value="查看详情"></input>
+              </form>
+            </div>
+          </li>
+          <!-- notice item -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">27</span> APR,2019</div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href={{ url_for("student_homework") }} class="h4 mb-3 d-block">{{ course_data_2[1] }}</a>
+              <p class="mb-0">{{ homework_data_2[5] }}</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <form id="form6" method="post" action="/api/find_homework_2">
+              <input type=submit  class="btn btn-primary btn-sm" value="查看详情"></input>
+              </form>
+            </div>
+          </li>
+          <!-- notice item -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">25</span> APR,2019</div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href={{ url_for("student_homework") }} class="h4 mb-3 d-block">{{ course_data_3[1] }}</a>
+              <p class="mb-0">{{ homework_data_3[5] }}</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <form id="form7" method="post" action="/api/find_homework_3">
+              <input type=submit  class="btn btn-primary btn-sm" value="查看详情"></input>
+              </form>
+            </div>
+          </li>
+          <!-- notice item -->
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- footer -->
+<footer>
+  <!-- newsletter -->
+  <div class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
+          <h3 class="text-white">问题反馈</h3>
+          <form action="#">
+            <div class="input-wrapper">
+              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
+              <button type="submit" value="send" class="btn btn-primary">发送</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer content -->
+  <div class="footer bg-footer section border-bottom">
+    <div class="container">
+      <div class="row">
+        
+      </div>
+    </div>
+  </div>
+  <!-- copyright -->
+  
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="../static/plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="../static/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="../static/plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="../static/plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="../static/plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="../static/plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+
+<script src="../static/plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="../static/js/script.js"></script>
+
+</body>
+</html>

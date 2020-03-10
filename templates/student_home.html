@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../static/plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="../static/plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="../static/plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="../static/plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="../static/plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="../static/plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="../static/css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+  
+
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2 bg-white">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4 text-center text-lg-left">
+          
+        </div>
+        <div class="col-lg-8 text-center text-lg-right">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href={{ url_for("notice") }}>公告</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="research.html">查询</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href={{ url_for("logout") }}>退出登录</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <!--a class="navbar-brand" href={{ url_for("index") }}><img src="images/logo.png" alt="logo" ></a-->
+        <!--<button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>-->
+        
+
+        <div class="collapse navbar-collapse" id="navigation" style="font-size:20px">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item active">
+              <a class="nav-link" href={{ url_for("student") }}>主 页</a>
+            </li>
+            <li class="nav-item @@about">
+              <a class="nav-link" href={{ url_for("student_information") }}>个人信息</a>
+            </li>
+            <li class="nav-item @@courses">
+              <a class="nav-link" href={{ url_for("allcourses") }}>全部课程</a>
+            </li>
+            <li class="nav-item @@events">
+              <a class="nav-link" href={{ url_for("allhomework") }}>我的作业</a>
+            </li>
+            <li class="nav-item @@blog">
+              <a class="nav-link" href={{ url_for("blog") }}>论 坛</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                其 他
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="teacher.html">老师</a>
+                <a class="dropdown-item" href="teacher-single.html">我的组队</a>
+                <a class="dropdown-item" href={{ url_for("notice") }}>公告</a>
+                <a class="dropdown-item" href={{ url_for("allcourses") }}>全部课程</a>
+                <a class="dropdown-item" href="research.html">搜索</a>
+                <a class="dropdown-item" href="scholarship.html">校内论坛</a>
+              </div>
+            </li>
+            <!--li class="nav-item @@contact"-->
+              <!-- <a class="nav-link" href="contact.html">CONTACT</a> -->
+            <!--/li-->
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>  
+<!-- /header -->
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>游客注册</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login">
+                    <form action="#" class="row">
+                        <div class="col-12">
+                            <input type="text" class="form-control mb-3" id="signupPhone" name="signupPhone" placeholder="Phone">
+                        </div>
+                        <div class="col-12">
+                            <input type="text" class="form-control mb-3" id="signupName" name="signupName" placeholder="Name">
+                        </div>
+                        <div class="col-12">
+                            <input type="email" class="form-control mb-3" id="signupEmail" name="signupEmail" placeholder="Email">
+                        </div>
+                        <div class="col-12">
+                            <input type="password" class="form-control mb-3" id="signupPassword" name="signupPassword" placeholder="Password">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">注册</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>用户登录</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="row">
+                    
+                    <div class="col-12">
+                        <input type="text" class="form-control mb-3" id="loginName" name="loginName" placeholder="学号/学工号">
+                    </div>
+                    <div class="col-12">
+                        <input type="password" class="form-control mb-3" id="loginPassword" name="loginPassword" placeholder="密码">
+                    </div>
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">登录</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select class="btn btn-primary">
+                <option value="teacher">教师</option>
+                <option value="student">学生</option>
+                <option value="tourist">游客</option>
+            </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hero slider -->
+<section class="page-title-section overlay" data-background="../static/images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href={{ url_for("student") }}学生主页</a></li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /hero slider -->
+
+
+
+<!-- courses -->
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex align-items-center section-title justify-content-between">
+          <h2 class="mb-0 text-nowrap mr-3">我的课程</h2>
+          <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+          <div>
+            <a href={{ url_for("allcourses") }} class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block"> see all</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- course list -->
+<div class="row justify-content-center">
+  <!-- course item -->
+
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="../static/images/courses/course-1.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2018-2019秋冬学期</li>
+          
+        </ul>
+        <a>
+          <h4 class="card-title">{{ course_data_1[1] }}</h4>
+        </a>
+        <form id="form2" method="post" action="/api/find_course_1">
+        <input type=submit  class="btn btn-primary btn-sm" value="进入学习"></input>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="../static/images/courses/course-2.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2018-2019春夏学期</li>
+        </ul>
+        <a >
+          <h4 class="card-title">{{ course_data_2[1] }}</h4>
+        </a>
+        <form id="form3" method="post" action="/api/find_course_2">
+        <input type=submit  class="btn btn-primary btn-sm" value="进入学习"></input>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- course item -->
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="../static/images/courses/course-3.jpg" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>2018-2019春夏学期</li>
+
+        </ul>
+        <a>
+          <h4 class="card-title">{{ course_data_3[1] }}</h4>
+        </a>
+
+        <form id="form4" method="post" action="/api/find_course_3">
+        <input type=submit  class="btn btn-primary btn-sm" value="进入学习"></input>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+<!-- /course list -->
+    <!-- mobile see all button -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <a href={{ url_for("allcourses") }} class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">sell all</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /courses -->
+
+
+
+
+<!-- events -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex align-items-center section-title justify-content-between">
+          <h2 class="mb-0 text-nowrap mr-3">我的作业</h2>
+          <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+          <div>
+            <a href={{ url_for("allcourses") }} class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">see all</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-unstyled">
+          <!-- notice item -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">25</span> APR,2019</div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href={{ url_for("student_homework") }} class="h4 mb-3 d-block">{{ course_data_1[1] }}</a>
+              <p class="mb-0">{{ homework_data_1[5] }}</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <form id="form5" method="post" action="/api/find_homework_1">
+              <input type=submit  class="btn btn-primary btn-sm" value="查看详情"></input>
+              </form>
+            </div>
+          </li>
+          <!-- notice item -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">27</span> APR,2019</div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href={{ url_for("student_homework") }} class="h4 mb-3 d-block">{{ course_data_2[1] }}</a>
+              <p class="mb-0">{{ homework_data_2[5] }}</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <form id="form6" method="post" action="/api/find_homework_2">
+              <input type=submit  class="btn btn-primary btn-sm" value="查看详情"></input>
+              </form>
+            </div>
+          </li>
+          <!-- notice item -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">25</span> APR,2019</div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href={{ url_for("student_homework") }} class="h4 mb-3 d-block">{{ course_data_3[1] }}</a>
+              <p class="mb-0">{{ homework_data_3[5] }}</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <form id="form7" method="post" action="/api/find_homework_3">
+              <input type=submit  class="btn btn-primary btn-sm" value="查看详情"></input>
+              </form>
+            </div>
+          </li>
+          <!-- notice item -->
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- cta -->
+<section class="section bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h6 class="text-white font-secondary mb-0"></h6>
+        <h2 class="section-title text-white">尝试更好的自己</h2>
+        <a href="contact.html" class="btn btn-secondary">开始学习</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /cta -->
+
+<!-- teachers -->
+<section class="section">
+  <div class="container">
+    <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex align-items-center section-title justify-content-between">
+          <h2 class="mb-0 text-nowrap mr-3">我参与的讨论</h2>
+          <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+          <div>
+            <a href={{ url_for("allcourses") }} class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">see all</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- blog post -->
+      <article class="col-lg-4 col-sm-6 mb-5">
+        <div class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="../static/images/blog/post-1.jpg" alt="Post thumb">
+          <div class="card-body">
+            <!-- post meta -->
+            <ul class="list-inline mb-3">
+              <!-- post date -->
+              <li class="list-inline-item mr-3 ml-0">August 28, 2018</li>
+              <!-- author -->
+              <li class="list-inline-item mr-3 ml-0">三儿</li>
+            </ul>
+            <a href="blog-single.html">
+              <h4 class="card-title">微积分7章第三题</h4>
+            </a>
+            <p class="card-text">太难了，学不会，求大佬捞</p>
+            <a href="blog-single.html" class="btn btn-primary btn-sm">参与讨论</a>
+          </div>
+        </div>
+      </article>
+      <!-- blog post -->
+      <article class="col-lg-4 col-sm-6 mb-5">
+        <div class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="../static/images/blog/post-2.jpg" alt="Post thumb">
+          <div class="card-body">
+            <!-- post meta -->
+            <ul class="list-inline mb-3">
+              <!-- post date -->
+              <li class="list-inline-item mr-3 ml-0">August 13, 2018</li>
+              <!-- author -->
+              <li class="list-inline-item mr-3 ml-0">小四</li>
+            </ul>
+            <a href="blog-single.html">
+              <h4 class="card-title">C程使我快乐</h4>
+            </a>
+            <p class="card-text">编程天才进</p>
+            <a href="blog-single.html" class="btn btn-primary btn-sm">参与讨论</a>
+          </div>
+        </div>
+      </article>
+      <!-- blog post -->
+      <article class="col-lg-4 col-sm-6 mb-5">
+        <div class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="../static/images/blog/post-3.jpg" alt="Post thumb">
+          <div class="card-body">
+            <!-- post meta -->
+            <ul class="list-inline mb-3">
+              <!-- post date -->
+              <li class="list-inline-item mr-3 ml-0">August 24, 2018</li>
+              <!-- author -->
+              <li class="list-inline-item mr-3 ml-0">王老师</li>
+            </ul>
+            <a href="blog-single.html">
+              <h4 class="card-title">计算机网络课后思考题讨论</h4>
+            </a>
+            <p class="card-text">方便大家更好的理解</p>
+            <a href="blog-single.html" class="btn btn-primary btn-sm">参与讨论</a>
+          </div>
+        </div>
+      </article>
+      <!-- blog post -->
+      
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex align-items-center section-title justify-content-between">
+          <h2 class="mb-0 text-nowrap mr-3">我的公告</h2>
+          <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+          <div>
+            <a href={{ url_for("allcourses") }} class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">see all</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-unstyled">
+          <!-- notice item -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">30</span> APR,2019</div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href={{ url_for("student_homework") }} class="h4 mb-3 d-block">计算机科学与技术</a>
+              <p class="mb-0">操作系统本周停课</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4"><a href={{ url_for("student_homework") }} class="btn btn-primary">查看详情</a></div>
+          </li>
+          <!-- notice item -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">27</span> APR,2019</div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href={{ url_for("student_homework") }} class="h4 mb-3 d-block">计算机科学与技术</a>
+              <p class="mb-0">计算机网络本周停课</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4"><a href={{ url_for("student_homework") }} class="btn btn-primary">查看详情</a></div>
+          </li>
+          <!-- notice item -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">25</span> APR,2019</div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href={{ url_for("student_homework") }} class="h4 mb-3 d-block">计算机科学与技术</a>
+              <p class="mb-0">软件工程管理本周停课</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4"><a href={{ url_for("student_homework") }} class="btn btn-primary">查看详情</a></div>
+          </li>
+          <!-- notice item -->
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0"><span class="h2 d-block">23</span> APR,2019</div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href={{ url_for("student_homework") }} class="h4 mb-3 d-block">计算机科学与技术</a>
+              <p class="mb-0">计算机原理本周作业更改</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4"><a href={{ url_for("student_homework") }} class="btn btn-primary">查看详情</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- footer -->
+<footer>
+  <!-- newsletter -->
+  <div class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
+          <h3 class="text-white">问题反馈</h3>
+          <form action="#">
+            <div class="input-wrapper">
+              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
+              <button type="submit" value="send" class="btn btn-primary">发送</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer content -->
+  <div class="footer bg-footer section border-bottom">
+    <div class="container">
+      <div class="row">
+        
+      </div>
+    </div>
+  </div>
+  <!-- copyright -->
+  
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="../static/plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="../static/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="../static/plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="../static/plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="../static/plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="../static/plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+
+<script src="../static/plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="../static/js/script.js"></script>
+
+</body>
+</html>

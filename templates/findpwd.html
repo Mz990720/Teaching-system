@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf -->
+<html lang="en"><!--jQuery核心框架库 --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./findpwd_files/ga.js"></script><script type="text/javascript" src="./findpwd_files/jquery-1.11.1-min.js"></script>
+<script type="text/javascript" src="./findpwd_files/jquery-migrate-1.4.1.min.js"></script>
+<!--jQuery浏览器检测 -->
+<script type="text/javascript" src="./findpwd_files/browse-judge.js"></script>
+<script type="text/javascript">
+	//\u6d4f\u89c8\u5668\u7248\u672c\u9a8c\u8bc1
+	/*var broswer = broswer();
+	if(broswer.msie==true||broswer.safari==true||broswer.mozilla==true||broswer.chrome==true){
+		if(broswer.msie==true&&broswer.version<9){
+		   window.location.href = _path+"/xtgl/init_cxBrowser.html";
+		}
+	}else{
+		 window.location.href = _path+"/xtgl/init_cxBrowser.html";
+	}*/
+</script><script src="./findpwd_files/jquery.i18n.properties-1.0.9.js"></script>
+<script src="./findpwd_files/i18n.js"></script>
+<script>var _path = "";</script><script type="text/javascript">
+		_path = "";
+		//判断操作系统和浏览器类型，需要判断的页面加上detectOS()；
+		function detectOS() { 
+			var sUserAgent = navigator.userAgent; 
+			var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
+			if (isWin) {
+				/*
+				var isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1; 
+				var isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1; 
+				var isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1; 
+				var isWinVista= sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf("Windows Vista") > -1; 
+				var isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1; 
+				
+				if(navigator.userAgent.indexOf("MSIE 6.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0){ //IE6.0和IE7.0
+					window.location.href = _path+"/systemrole/init_cxBrowser.html";
+				}
+				else if(navigator.userAgent.indexOf("MSIE 8.0")>0){//IE8.0
+					if (isWin2K  || isWinXP || isWin2003 || isWinVista){ //xp系统和其他低版本系统
+						window.location.href = _path+"/systemrole/init_cxBrowser.html";
+					}
+					else if (isWin7) //w7系统
+					{
+						window.location.href = _path+"/systemrole/init_cxBrowser.html";
+					}
+				}
+				
+				if (navigator.userAgent.indexOf("Chrome") > -1){
+					window.location.href = "browser.zf";
+				}
+				*/
+				if(navigator.userAgent.indexOf("MSIE 6.0")>0 
+						|| navigator.userAgent.indexOf("MSIE 7.0")>0 
+						|| navigator.userAgent.indexOf("MSIE 8.0")>0){ //IE6、7、8、9
+					window.location.href = _path+"/system/browser.zf";
+				}
+			}
+		}
+		detectOS();
+	</script>	
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>找回密码</title>
+
+		<link rel="stylesheet" href="./findpwd_files/styles.css">
+		<link rel="stylesheet" href="./findpwd_files/bootstrap.min.css">
+		<link rel="stylesheet" href="./findpwd_files/magnific-popup.css">
+		<link rel="stylesheet" href="./findpwd_files/main.css">
+		<link rel="stylesheet" href="./findpwd_files/mmcl.css">
+		<link rel="stylesheet" href="./findpwd_files/wxts.css">
+	    <script src="./findpwd_files/google_analytics_auto.js"></script>
+	</head>
+	<body class="zh">
+	    <input type="hidden" id="step1URL" value="valdiateYhmCard.zf">
+	    <!--  
+	    <input type="hidden" id="step3byPhone.zf" value="retakaPwd/validateCodePhone.zf"/>
+	    -->
+	    <input type="hidden" id="step3byPhone.zf" value="validateCodePhone.zf">
+	    <input type="hidden" id="step4byPhone.zf" value="updatePwdPhone.zf">
+	    <input type="hidden" id="step3byMail.zf" value="validateCodeMail.zf">
+	    <input type="hidden" id="step4byMail.zf" value="updatePwdMial.zf">
+	    <input type="hidden" id="step3byQuestion.zf" value="retakePwdByQuestion.zf">
+	    <input type="hidden" id="step4byQuestion.zf" value="updatePwdQuestion.zf">
+	    <input type="hidden" id="step" value="step1">
+	    <input type="hidden" id="url" value="">
+	    <input type="hidden" id="retakeType" name="retakeType" value="byPhone.zf">
+	    <input type="hidden" id="retakeType" name="retakeType" value="securitycenter.retakePwd.sendMsgPhone">
+	    <input type="hidden" id="byPhone.zf" name="byPhone.zf" value="securitycenter.retakePwd.sendMsgMail">
+	    <input type="hidden" id="byMail.zf" name="byMail.zf" value="byPhone.zf">
+	    <!--国际化提示-->
+	    <input type="hidden" id="nameCardNotNull" name="securitycenter.findPwd.nameCardNotNull" value="">
+	    <input type="hidden" id="securitycenter.findPwd.noCardName" name="securitycenter.findPwd.noCardName" value="">
+
+		<!-- <div id="np-loader"></div> -->
+		<div class="blog-page">
+			<!-- Header -->
+			<header class="header parallax">
+				<ul class="top-bar container">
+				    <li></li>
+				</ul>
+
+				<div class="big-title">
+					<span class="sub-title">Retrieve the password</span>
+					<h1 class="title"><span>找回密码</span></h1>
+				</div>
+			</header>
+			<!-- .header -->
+			<div class="container">	
+				<div class="blog-single blog-common row">
+					<article class="hentry post type-post col-md-10 col-md-offset-1">
+						<header class="entry-head">
+							<h2 class="title"><a href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#non" rel="bookmark">立即找回密码</a></h2>
+							<div class="meta">
+								<p>
+当您忘记密码时，可通过密保手机,密保邮箱,密保问题方式去找您的密码									<font color="red">咨询电话：0571-87951669,技术咨询电话：88273255 楼老师</font>
+								</p>
+							</div>
+						</header>
+
+						<!-- Entry Content -->
+						<div class="entry-content">
+							<form id="example-advanced-form" action="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#" method="post" role="application" class="wizard clearfix"><div class="steps clearfix"><ul role="tablist"><li role="tab" class="first current" aria-disabled="false" aria-selected="true"><a id="example-advanced-form-t-0" href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#example-advanced-form-h-0" aria-controls="example-advanced-form-p-0"><span class="current-info audible">current step: </span><span class="number">1.</span> 核实账号</a></li><li role="tab" class="disabled" aria-disabled="true"><a id="example-advanced-form-t-1" href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#example-advanced-form-h-1" aria-controls="example-advanced-form-p-1"><span class="number">2.</span> 密保工具</a></li><li role="tab" class="disabled" aria-disabled="true"><a id="example-advanced-form-t-2" href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#example-advanced-form-h-2" aria-controls="example-advanced-form-p-2"><span class="number">3.</span> 验证信息</a></li><li role="tab" class="disabled last" aria-disabled="true"><a id="example-advanced-form-t-3" href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#example-advanced-form-h-3" aria-controls="example-advanced-form-p-3"><span class="number">4.</span> 修改密码</a></li></ul></div><div class="content clearfix">
+								<h3 id="example-advanced-form-h-0" tabindex="-1" class="title current">核实账号</h3>
+								<fieldset id="example-advanced-form-p-0" role="tabpanel" aria-labelledby="example-advanced-form-h-0" class="body current" aria-hidden="false">
+									<!--<legend>填写账号信息</legend>-->
+									<div class="col-md-8 col-md-offset-2 col-xs-12 xs-p-0 md-p-15">
+										<div class="form-list col-md-12 m-b-30">
+											<label for="userName-2" class="col-md-3 p-0 text-right col-xs-3">学/工号*</label>
+											<input id="userName" name="userName" type="text" class=" form-style col-md-8 col-xs-9">
+										</div>
+										<div class="form-list col-md-12 m-b-30">
+											<label for="userName-1" class="col-md-3 p-0 text-right col-xs-3">证件号*</label>
+											<input id="idCard" name="idCard" type="text" class=" form-style col-md-8 col-xs-9" onfocus="nosfyz()">
+											<input type="text" class="form-control col-md-8 col-xs-9" id="sfyz" readonly="readonly" style="display:none">
+										</div>
+										<div class="form-list col-md-12 m-b-30">
+												<label for="userName-1" class="col-md-3 p-0 text-right col-xs-3">验证码*</label>
+							  				  	<input name="yzm" type="text" id="yzm" class="form-style col-xs-4 mainput" placeholder="验证码">
+							  				  	<img border="0" align="absmiddle" id="yzmPic" style="cursor: hand;height:42px;" onclick="javascript:refreshCode();" name="yzmPic" width="108" height="34" src="./findpwd_files/kapt">
+							    				<a class="f11 line41 marginl-5" href="javascript:refreshCode();">看不清?</a>
+							    				<input type="text" class="form-control col-md-8 col-xs-9" id="yzmts" readonly="readonly" style="display:none">
+										</div>
+									</div>
+								</fieldset>
+
+								<h3 id="example-advanced-form-h-1" tabindex="-1" class="title">密保工具</h3>
+								<fieldset id="example-advanced-form-p-1" role="tabpanel" aria-labelledby="example-advanced-form-h-1" class="body" aria-hidden="true" style="display: none;">
+									<!--<legend>Profile Information</legend>-->
+									<div class="form-list-half col-md-4 col-xs-12 m-b-10">
+										<div class="radio radio-primary radio-inline">
+											<input type="radio" id="inlineRadio1" value="byPhone.zf" name="radioInline" checked="">
+											<label for="inlineRadio1"> 通过手机号码 </label>
+										</div>
+									</div>
+
+									<div class="form-list-half col-md-4 col-xs-12 m-b-10">
+										<div class="radio radio-primary radio-inline">
+											<input type="radio" id="inlineRadio2" value="byMail.zf" name="radioInline">
+											<label for="inlineRadio2"> 通过邮箱地址 </label>
+										</div>
+									</div>
+									<div class="form-list-half col-md-4 col-xs-12 m-b-10">
+										<div class="radio radio-primary radio-inline">
+											<input type="radio" id="inlineRadio3" value="byQuestion.zf" name="radioInline">
+											<label for="inlineRadio3"> 通过密保问题 </label>
+										</div>
+									</div>
+									<div class="form-list col-md-12 m-b-30 ">
+									</div>		
+						<div class="form-list col-md-12 m-b-30 " id="byphoneMessage">	
+							<div class="col-md-12 ">
+								<div class="form-list col-md-12">
+										<div class="radio radio-primary radio-inline">
+											<input type="radio" id="phoneLine1" value="lxdh" name="phoneLine">
+											<label for="phoneLine1"><strong id="lxdh"></strong>
+											<strong>(来自基础信息；若信息有误，点击"温馨提示"查看具体修改方法)
+										     <span class="wxts" data-toggle="modal" data-target="#myModal">温馨提示</span>
+											</strong>
+											</label>
+											
+										</div>
+								</div>
+								<div class="form-list col-md-12">
+										<div class="radio radio-primary radio-inline">
+											<input type="radio" id="phoneLine2" value="sjhm" name="phoneLine">
+											<label for="phoneLine2"><strong id="sjhm"></strong>
+											<strong>(来自密保信息，该信息是用户在账号激活时自动绑定或者在安全中心主动绑定；若信息有误，请登录后重新绑定)</strong></label>
+											
+										</div>						
+								</div>
+							</div>				
+						</div>
+						
+						<div class="form-list col-md-12 m-b-30 " id="bymailMessage" style="display:none">	
+							<div class="col-md-12 ">
+								<div class="form-list col-md-12">
+										<div class="radio radio-primary radio-inline">
+											<input type="radio" id="mailLine1" value="dzyx" name="mailLine">
+											<label for="mailLine1"><strong id="dzyx"></strong>
+											<strong>(来自基础信息；若信息有误，点击"温馨提示"查看具体修改方法)
+											<span class="wxts" data-toggle="modal" data-target="#myModal">温馨提示</span>
+											</strong>
+											</label>
+											
+										</div>
+								</div>
+								<div class="form-list col-md-12">
+										<div class="radio radio-primary radio-inline">
+											<input type="radio" id="mailLine2" value="yxdz" name="mailLine">
+											<label for="mailLine2"><strong id="yxdz"></strong>
+											<strong>(来自密保信息，该信息是用户在账号激活时自动绑定或者在安全中心主动绑定；若信息有误，请登录后重新绑定)
+											</strong>
+											</label>
+										</div>						
+								</div>
+							</div>				
+						</div>
+						<!--
+						 <div class="col-md-12 text-center" id="wxtsMessage">
+                    			<span class="wxts" data-toggle="modal" data-target="#myModal">温馨提示</span>
+                  		</div>
+                  		-->
+									<div class="form-list col-md-12 m-b-30 text-center">
+										<h2 class="title" id="bdyz" style="color: red;font-size:13px;"></h2>
+									</div>
+								</fieldset>
+
+								<h3 id="example-advanced-form-h-2" tabindex="-1" class="title">验证信息</h3>
+								<fieldset id="example-advanced-form-p-2" role="tabpanel" aria-labelledby="example-advanced-form-h-2" class="body" aria-hidden="true" style="display: none;">
+                                    <div class="entry-content">				
+								   <div class="col-md-6 col-md-offset-3" id="byquestion" style="display:none">
+                                    <div class="form-list col-md-12">
+									<select class="form-style col-md-6" name="mbbs1" id="mbbs1" disabled="disabled" value="">
+										<option value="">--请选择问题--</option>
+										<option value="1">你母亲的姓名是？</option>
+										<option value="2">你父亲的姓名是？</option>
+										<!--<option value="3">你父亲的手机号是？</option>
+										<option value="4">你母亲的手机号是？</option>
+										<option value="5">你出生地的邮编是？</option>
+										<option value="6">你的身份证号是？</option>
+										<option value="7">你的生日是？</option>
+										<option value="8">你母亲的生日是？</option>
+										<option value="9">你父亲的生日是？</option>-->
+										<option value="10">对你影响最大的人的名字是？</option>
+										<option value="11">你印象最深的高中班主任名字是？</option>
+										<option value="12">你印象最深的童年好友名字是？</option>
+									</select>
+									
+										<input type="text" class="form-style col-md-6" name="question1" id="question1" placeholder="--请填写密保答案--">
+								</div>
+									
+								<div class="form-list col-md-12">
+									<select class="form-style col-md-6" name="mbbs2" id="mbbs2" disabled="disabled" value="">
+										<option value="">--请选择问题--</option>
+										<option value="1">你母亲的姓名是？</option>
+										<option value="2">你父亲的姓名是？</option>
+										<option value="3">你父亲的手机号是？</option>
+										<option value="4">你母亲的手机号是？</option>
+										<option value="5">你出生地的邮编是？</option>
+										<option value="6">你的身份证号是？</option>
+										<option value="7">你的生日是？</option>
+										<option value="8">你母亲的生日是？</option>
+										<option value="9">你父亲的生日是？</option>
+										<option value="10">对你影响最大的人的名字是？</option>
+										<option value="11">你印象最深的高中班主任名字是？</option>
+										<option value="12">你印象最深的童年好友名字是？</option>
+									</select>
+									<input type="text" class="form-style col-md-6" name="question2" id="question2" placeholder="--请填写密保答案--">
+									<input type="text" class="form-control col-md-12" id="questionError" readonly="readonly" style="display:none;width: 92%;">
+								</div>
+								</div>
+								</div>
+                                    
+                                    
+									<p class="col-md-12" id="mobileMail"></p>
+									<div class="col-md-6 col-md-offset-4">
+										<div class="form-list col-md-12">
+											<input type="text" id="code" onfocus="nosfyz()" name="code" class="required form-style col-md-8" placeholder="请输入验证码..." maxlength="6">
+											<input type="text" class="form-control col-md-8" id="yzmyz" readonly="readonly" style="display:none">
+										</div>
+									</div>
+								</fieldset>
+
+								<h3 id="example-advanced-form-h-3" tabindex="-1" class="title">修改密码</h3>
+								<fieldset id="example-advanced-form-p-3" role="tabpanel" aria-labelledby="example-advanced-form-h-3" class="body" aria-hidden="true" style="display: none;">
+									<div class="col-md-8 col-md-offset-2">
+									<!-- 
+										<div class="form-list col-md-12">
+											<label class="col-md-3 p-0 text-right">旧密码：</label>
+											<input type="text" class="form-style col-md-8" placeholder="请输入旧密码...">
+										</div>
+									 -->
+									     <input type="hidden" id="returnUsername" name="username" value="">
+									     <input type="hidden" id="subNewPwd" name="subNewPwd" value="">
+										<div class="form-list col-md-20">
+											<label class="col-md-3 p-0 text-right">新密码：</label>
+											<input type="password" id="newPassword" name="newPassword" onpropertychange="showMessage(&#39;checkPwdStrong&#39;,&#39;&#39;,&#39;none&#39;);showMessage(&#39;mmyz&#39;,&#39;&#39;,&#39;none&#39;)" oninput="showMessage(&#39;checkPwdStrong&#39;,&#39;&#39;,&#39;none&#39;);showMessage(&#39;mmyz&#39;,&#39;&#39;,&#39;none&#39;)" class=" form-style col-md-8" placeholder="请输入新密码..." maxlength="20" onfocus="showMmcl(&#39;block&#39;)" onblur="showMmcl(&#39;none&#39;)" style="width: 64%;margin-left: 6px;">
+										    <input type="text" style="display:none" class="form-style col-md-6" id="checkPwdStrong">
+										    <div class="pass-tips" id="pass-tips" style="top: -17px; left: 90%; display: none;">
+						                        <span class="pwd-checklist-arrow"><em class="arrowa">◆</em><em class="arrowb">◆</em></span>
+						                        <ul class="pass-tips-content">
+						                            <li id="pwdLen" class="pass-tips-content-item">密码不小于六位</li>
+						                            <li id="pwdCha" class="pass-tips-content-item">必须包含数字，字母，特殊字符中的两种</li>
+						                            <li id="pwdSpa" class="pass-tips-content-item">不允许有空格</li>
+						                        </ul>
+						                    </div>
+										</div>
+										<div class="form-list col-md-12">
+											<label class="col-md-3 p-0 text-right">再次输入：</label>
+											<input type="password" id="repeatPassword" name="repeatPassword" class="form-style col-md-8" placeholder="请再次输入新密码..." oninput="showMessage(&#39;mmyz&#39;,&#39;&#39;,&#39;none&#39;);showMessage(&#39;mmyz&#39;,&#39;&#39;,&#39;none&#39;)" maxlength="20">
+											<input type="text" class="form-control col-md-8" id="mmyz" readonly="readonly" style="display:none">
+										</div>
+									</div>
+								</fieldset>
+							</div><div class="actions clearfix"><ul role="menu" aria-label="Pagination"><li class="disabled" aria-disabled="true"><a href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#previous" role="menuitem">上一步</a></li><li aria-hidden="false" aria-disabled="false"><a href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#next" role="menuitem">下一步</a></li><li aria-hidden="true" style="display: none;"><a href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#finish" role="menuitem">提交</a></li></ul></div></form>
+						</div>
+					</article>
+
+				</div>
+			</div>
+		</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="wxts-dialog modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          <span class="modal-title" id="myModalLabel">在线帮助</span>
+        </div>
+
+        <div class="wxts-body">
+          <div class="wxts-left">
+            <ul style="display: contents;">
+              <li role="presentation" class="active"><a href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#yjs" aria-controls="yjs" role="tab" data-toggle="tab"><img src="./findpwd_files/1.png" alt="">研究生</a>
+              </li>
+              <li role="presentation"><a href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#bks" aria-controls="bks" role="tab" data-toggle="tab"><img src="./findpwd_files/2.png" alt="">本科生</a>
+              </li>
+              <li role="presentation"><a href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#zbjs" aria-controls="zbjs" role="tab" data-toggle="tab"><img src="./findpwd_files/3.png" alt="">在编教师</a>
+              </li>
+              <li role="presentation"><a href="https://zuinfo.zju.edu.cn/securitycenter/findPwd/index.zf#wjxs" aria-controls="wjxs" role="tab" data-toggle="tab"><img src="./findpwd_files/4.png" alt="">外籍学生</a>
+              </li>
+            </ul>
+          </div>
+          <div class="wxts-right">
+            <!-- <p>本科生信息来源于教务系统。</p>
+            <p>本科生联系方式修改需本科生本人登录教务系统自助修改，登录账号可以是教务系统的账号或是统一身份认证账号。</p>
+            <p><a href="http://jwbinfosys.zju.edu.cn/" target="_blank">http://jwbinfosys.zju.edu.cn/</a></p> -->
+
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="yjs">
+                <p>研究生联系方式修改：研究生信息来源于研究生管理系统，研究生联系方式修改需研究生本人持身份证及校园卡至各学院研究生科，各学院相关负责老师登录到研究生管理系统进行修改。</p>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="bks">
+                <p>本科生联系方式修改：本科生信息来源于教务系统，本科生联系方式修改需本科生本人登录教务系统自助修改，登录账号可以是教务系统的账号或是统一身份认证账号。</p>
+                <p><a href="http://jwbinfosys.zju.edu.cn/" target="_blank">http://jwbinfosys.zju.edu.cn/</a></p>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="zbjs">
+                <p>在编老师联系方式修改：在编老师信息来源于人事系统，相关老师联系方式修改由本人到所在的部处院系的人事科调整。</p>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="wjxs">
+                <p>外籍学生联系方式信息统一由国际教育学院提供导入。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+		<!-- Script at the bottom for faster loading pages -->
+		<script src="./findpwd_files/bootstrap.min.js"></script>
+		<script src="./findpwd_files/jquery.steps.js"></script>
+		<script src="./findpwd_files/findPassword.js"></script>
+		<script src="./findpwd_files/security.js"></script>
+
+		<!-- For IE9 and below -->
+		<!--[if lt IE 10]>
+			<script src="/style/securitycenter/js/jquery.placeholder.min.js"></script>
+			<script type="text/javascript">
+				$('input, textarea').placeholder();
+			</script>
+		<![endif]-->
+
+		<script>
+            var form = $("#example-advanced-form").show();
+
+            form.steps({
+                headerTag: "h3",
+                bodyTag: "fieldset",
+                transitionEffect: "slideLeft",
+                onStepChanging: function (event, currentIndex, newIndex)
+                {
+                	//alert("onStepChanging");
+                    // Allways allow previous action even if the current form is not valid!
+                    if (currentIndex > newIndex)
+                    {
+                        return true;
+                    }
+                    // Forbid next action on "Warning" step if the user is to young
+                    if (newIndex === 3 && Number($("#age-2").val()) < 18)
+                    {
+                        return false;
+                    }
+                    // Needed in some cases if the user went back (clean up)
+                    if (currentIndex < newIndex)
+                    {
+                        // To remove error styles
+                        form.find(".body:eq(" + newIndex + ") label.error").remove();
+                        form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+                    }
+                   // form.validate().settings.ignore = ":disabled,:hidden";
+                   return true;
+                },
+                onStepChanged: function (event, currentIndex, priorIndex)
+                {
+                    // Used to skip the "Warning" step if the user is old enough.
+                    if (currentIndex === 2 && Number($("#age-2").val()) >= 18)
+                    {
+                        form.steps("next");
+                    }
+                    // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+                    if (currentIndex === 2 && priorIndex === 3)
+                    {
+                        form.steps("previous");
+                    }
+                },
+                onFinishing: function (event, currentIndex)
+                {
+                    if(repeatPassword()){
+                        decideStep();
+                    }else {
+                    	return false ;
+                    }
+                },
+                onFinished: function (event, currentIndex)
+                {
+                    if(repeatPassword()){
+                        decideStep();
+                    }else {
+                    	return false ;
+                    }
+                }
+            });
+
+		</script>
+	
+
+</body></html>

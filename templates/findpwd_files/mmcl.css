@@ -1,0 +1,56 @@
+.pass-tips {
+    position: absolute;
+    left: 420px;
+    top: 200px;
+    padding-bottom: 1px;
+    width:250px;
+}
+ body, button, input, select, textarea, pre {
+    font-size: 12px;
+    font-family: Arial, Helvetica, STHeiti, 宋体;
+}
+.pwd-checklist-arrow {
+    position: absolute;
+    top: 20px ;
+    left: 0;
+}
+body, button, input, select, textarea, pre {
+    font-size: 12px;
+    font-family: Arial,Helvetica,STHeiti,"宋体";
+}
+.pwd-checklist-arrow em.arrowa {
+        color: #ddd;
+        left: -2px;
+}
+.pwd-checklist-arrow em {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 14px;
+        color: #f9f9f9;
+}
+address, cite, dfn, em, var {
+    font-style: normal;
+}
+address, cite, dfn, em, var {
+    font-style: normal;
+}
+.pass-tips-content {
+    margin-left: 5px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 1px #efefef;
+    background: #f9f9f9;
+    width: 270px;
+}
+ul li {
+    list-style: none;
+}
+.pass-tips-content-item {
+    background: url(../img/password_icons.png) no-repeat;
+    background-position: -6px 0;
+    line-height: 20px;
+    padding-left: 18px;
+    color: #666;
+    font-size:12px;
+}

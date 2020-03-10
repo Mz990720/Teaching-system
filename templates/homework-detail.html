@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <title>作业详情</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../static/plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="../static/plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="../static/plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="../static/plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="../static/plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="../static/plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="../static/css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+  
+
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2 bg-white">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4 text-center text-lg-left">
+          
+        </div>
+        <div class="col-lg-8 text-center text-lg-right">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="notice.html">公告</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="research.html">查询</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#loginModal">退出登录</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <!--a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo" ></a-->
+        <!--<button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>-->
+        
+
+        <div class="collapse navbar-collapse" id="navigation" style="font-size:20px">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item active">
+              <a class="nav-link" href={{ url_for("teacher") }}>我的课程</a>
+            </li>
+
+            <li class="nav-item @@course">
+              <a class="nav-link" href={{ url_for("teacher_information") }}>个人信息</a>
+            </li>
+            <li class="nav-item @@events">
+              <a class="nav-link" href={{ url_for("blog") }}>论坛</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>  
+<!-- /header -->
+
+
+<!-- hero slider -->
+<section class="page-title-section overlay" data-background="../static/images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="teacher.html"></a></li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /hero slider -->
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex">
+          <div class="text-center mr-4">
+            <div class="p-4 bg-primary text-white">
+                <span class="h2 d-block">30</span> APR,2019
+            </div>
+          </div>
+          <!-- notice content -->
+
+          <div>
+            <h3 class="mb-4">软件需求工程作业</h3>
+            <p>很难很难很难很难</p>
+            <p>不允许抄袭</p>
+            <ul class="list-styled mb-5">
+              <li>9.1</li>
+              <li>9.2</li>
+              <li>9.3</li>
+              <li>9.4</li>
+              <li>9.5</li>
+              <li>9.6</li>
+            </ul>
+
+            <div class="d-md-table-cell text-right pr-0 pr-md-4"><a class="btn btn-primary" href={{ url_for("teacher_download") }} >下载学生提交的作业</a></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- jQuery -->
+<script src="../static/plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="../static/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="../static/plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="../static/plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="../static/plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="../static/plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+
+<script src="../static/plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="../static/js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+.wxts {
+  /* text-align: center; */
+  font-size: 18px;
+  color: #2196F3;
+  border: 1px solid #9E9E9E;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.wxts:hover {
+  background-color: #9e9e9e12;
+}
+
+.wxts-dialog {
+  margin-top: 21%;
+}
+
+.wxts-dialog .modal-header {
+  background-color: #4283EE;
+  min-height: 20px;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.wxts-dialog .close {
+  opacity: 1;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.wxts-body {
+  font-size: 14px;
+  height: 300px;
+}
+
+.wxts-left {
+  float: left;
+  width: 26%;
+  height: 100%;
+  background-color: #E8E8E8;
+}
+
+.wxts-left li {
+  list-style: none;
+  width: 100%;
+  padding: 20px 30px;
+}
+
+.wxts-left li.active {
+  background-color: #ffffff;
+}
+
+.wxts-left li img {
+  margin-right: 8px;
+  max-width: 24px;
+}
+
+.wxts-right {
+  width: 74%;
+  float: right;
+  padding: 20px 30px;
+}
+
+.wxts-right p {
+  margin: 0 0 4px;
+  line-height: 26px;
+}
+
+.wxts-right p a {
+  color: #2196F3;
+}
